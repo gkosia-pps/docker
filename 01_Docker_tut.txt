@@ -1,0 +1,49 @@
+# https://www.youtube.com/watch?v=wtKef83kmUA&list=PL0hSJrxggIQoKLETBSmgbbvE4FO_eEgoB
+
+Image: contains all dependencies and configuration to create a container
+       Is a FS Snapshot(copy of files) and a startup command
+Container: an instance of an image
+           An isolated (own memory, disk space) program
+
+
+docker run [-it] image_name:
+
+    1. Docker server check in the image cache if has the image locally
+    2. If has the image runs a new container in local Docker server
+    3. If the image is not in the cache goes to dockerhub to find the image
+
+Specific to linux: when run docker in windows or mac we have the LVM(linux virtual machine)
+    Namespacing: Create segments of isolated resources per process(specific hard disk aerea, network devices..)
+    Control groups: limit the amount of resources can be used from a process (memory, cpu, IO, bandwith)
+
+
+Docker client:
+
+    overide command: we can override the command specified in the image 
+                     We cannot overide the command of a container that already started. 
+                     A container run always the command it had when created
+
+        docker run <image> [<overide command>]
+    
+    list containers:
+
+        docker ps: list the running containers
+                   -a: show all containers that created
+    
+    create container:
+
+        docker create <image>: create a container from the image
+
+    start container:
+
+        docker start -a <containerid>: start an existing container
+                                       -a: attach the terminal to container and show me the output from container
+    cleanup docker env:
+        
+        docker system prune: delete images, containers, networks
+    
+    get logs of container:
+
+        docker logs <containerid>
+
+---- https://www.youtube.com/watch?v=qyFYmXSyfz0&list=PL0hSJrxggIQoKLETBSmgbbvE4FO_eEgoB&index=18
