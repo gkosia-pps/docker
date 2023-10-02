@@ -1,3 +1,5 @@
+https://www.youtube.com/watch?v=t4iEtz9l63Y&list=PL0hSJrxggIQoKLETBSmgbbvE4FO_eEgoB&index=52
+
 Docker compose: start multiple containers as a larger app 
 
     version: '3'  (version that specifies the format of file)
