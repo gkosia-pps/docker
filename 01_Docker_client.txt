@@ -46,4 +46,27 @@ Docker client:
 
         docker logs <containerid>
 
----- https://www.youtube.com/watch?v=qyFYmXSyfz0&list=PL0hSJrxggIQoKLETBSmgbbvE4FO_eEgoB&index=18
+    stop container:
+
+        docker stop: send SIGTERM singal to the process
+            send signal termintate: terminate normal (close connections, save files, do cleanup)
+                                    if the container does not teminate in some seconds will send the SIGKILL signal
+            docker stop <containerid>
+
+        docker kill: send SIGKILL to the process
+
+            doker kill <containerid>: stop imitietly witrh no additional action
+
+    execute additional commands in container:
+
+        docker exec -it <containerId> <command>
+
+        Process communication chanels:  
+
+            STDIN:  the chanel to send input to process 
+            STDOUT: the chanel that used by process to send the output 
+            STDERR: the chanel that used by process to send the errors
+
+            -it: 
+                i: attache the terminal to STDIN of the process
+                t: formatter in the terminal

@@ -1,0 +1,24 @@
+Dockerfile: plan text file with configuration of docker
+
+1. Start from base image
+2. Add additional commands
+3. Specify the command to run on container
+
+Build the image: docker build .
+    When Dockerfile is ready move to its folder and execute build . to create the image
+
+    docker build -t <dockerId>/<imagename>:<tag> .: name the image
+
+Dockerfile configuration:
+
+    FROM <image>: start from base image
+    RUM <linux command>: run command
+    CMD []: start the app command
+    COPY <fs> <container fs>: 
+    WORKDIR /usr/app: set the working directory 
+    
+    In every command docker build a temporary image and use it as input to next command
+
+Port mapping: map the port of host to ports of container
+
+    docker run -p 8080:8080 <image>
