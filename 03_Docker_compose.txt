@@ -1,0 +1,25 @@
+Docker compose: start multiple containers as a larger app 
+
+    version: '3'  (version that specifies the format of file)
+    docker-compose.yml:
+
+    services:
+        service-name:
+            image: 'image name'
+        service-name:
+            build: . (build the image based on Dockerfile in the current directory)
+            ports:
+                - "8080:8080"
+
+Networking: for containers created in the same docker-compose file
+
+    Containers that will be created in the same compose file will be created in the same network
+    Containers from the same compose (same network) can use service name to refer as host(db connection) with other services
+    Docker will see that has a service with that name and will redirect the request to the service
+
+
+Commands:
+
+    docker-compose up: run the compose file
+    docker-compose up --build: run the compose file and rebuild the images
+    docker-compose up -d: start the containers in the background
