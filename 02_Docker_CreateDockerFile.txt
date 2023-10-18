@@ -12,7 +12,7 @@ Build the image: docker build .
 Dockerfile configuration:
 
     FROM <image>: start from base image
-    RUM <linux command>: run command
+    RUN <linux command>: run command
     CMD []: start the app command
     COPY <fs> <container fs>: 
     WORKDIR /usr/app: set the working directory 

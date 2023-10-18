@@ -1,0 +1,14 @@
+When starting docker all containers run on the docker virtual environment
+
+Processes outside of docker virtual network can communicate with containers only if the containers expose some ports
+
+The default bridge network, allows simple container-to-container communication by IP address, and is created by default.
+    
+    docker network ls: list the networkd
+    docker inspect <container_id> | grep IPAddress: get the ip of a container ("IPAddress": "172.17.0.2",)
+
+A user-defined bridge network, which you create yourself, and allows your containers to communicate with each other, by using their container name as a hostname
+    
+    docker network create tulip-net: create the network  tulip-net
+    docker run --rm --net tulip-net --name tulipnginx -d nginx: attach the container to the network
+    docker network connect tulip-net mongodb: attach an already running container to the netowrk
